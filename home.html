@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <!--<div>
+         <img id = "cat1" src="cat1.jpg"/>
+         <br/>
+         <br/>
+         <p id="count1"></p>
+         </div>
+         
+         <div>
+         <img id = "cat2" src="cat2.jpg"/>
+         <br/>
+         <br/>
+         <p id="count2"></p>
+         </div> -->
+      <script>
+         /*var count1 = 0;
+         
+         $('#cat1').click(function(e) {
+           count1 = count1 + 1;
+           $("#count1").html("<h2>"+count1+"</h2>");
+         });
+         
+         var count2 = 0;
+         
+         $('#cat2').click(function(e) {
+           count2 = count2 + 1;
+           $("#count2").html("<h2>"+count2+"</h2>");
+         });*/
+         
+         // clear the screen for testing
+         var cats = [{name:"cat1",image:"cat1.jpg", count: 0},{name:"cat2",image:"cat2.jpg", count: 0},{name:"cat3",image:"cat3.jpg", count: 0},{name:"cat4",image:"cat4.jpg", count: 0},{name:"cat5",image:"cat5.jpg", count: 0}];
+         document.body.innerHTML = '';
+         document.body.style.background="white";
+         
+         // Let's loop over the numbers in our array
+         for (var i = 0; i < cats.length; i++) {
+         
+         // This is the number we're on...
+         var cat = cats[i];
+         
+         // We're creating a DOM element for the number
+         var elem = document.createElement('div');
+         var p = document.createElement('p');
+         p.appendChild(document.createTextNode(cat.name));
+         elem.appendChild(p);
+         var image = document.createElement('img');
+         $(image).attr('src',cat.image);
+         elem.appendChild(image);
+         var pc = document.createElement('p');
+         pc.appendChild(document.createTextNode(cat.count));
+         elem.appendChild(pc);
+         
+         // ... and when we click, alert the value of `num`
+         elem.addEventListener('click', (function(catCopy) {
+         return function() {
+            catCopy.count = catCopy.count + 1;
+         $($(this).find('p')[1]).html(catCopy.count);
+         };
+         })(cat));
+         
+         
+         // finally, let's add this element to the document
+         document.body.appendChild(elem);
+         };
+      </script>
+   </body>
+</html>
