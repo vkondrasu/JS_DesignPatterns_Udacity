@@ -32,32 +32,34 @@
            $("#count2").html("<h2>"+count2+"</h2>");
          });*/
          
-         // clear the screen for testing
-         
+         // clear the screen for testing         
          document.body.innerHTML = '';
          document.body.style.background="white";
          
          var cats = [{name:"cat1",image:"cat1.jpg", count: 0},{name:"cat2",image:"cat2.jpg", count: 0},{name:"cat3",image:"cat3.jpg", count: 0},{name:"cat4",image:"cat4.jpg", count: 0},{name:"cat5",image:"cat5.jpg", count: 0}];
          
-         // Let's loop over the numbers in our array
+         // Let's loop over the cats in our array
          for (var i = 0; i < cats.length; i++) {
          
-         // This is the number we're on...
+         // This is the cat we're on...
          var cat = cats[i];
          
-         // We're creating a DOM element for the number
+         // We're creating a DOM element for the cat
          var elem = document.createElement('div');
+         // Add 'p' element with cat's name
          var p = document.createElement('p');
          p.appendChild(document.createTextNode(cat.name));
          elem.appendChild(p);
+         // Add 'img' element with cat's image
          var image = document.createElement('img');
          $(image).attr('src',cat.image);
          elem.appendChild(image);
+         // Add second 'p'  element with click counter
          var pc = document.createElement('p');
          pc.appendChild(document.createTextNode(cat.count));
          elem.appendChild(pc);
          
-         // ... and when we click, alert the value of `num`
+         // ... and when we click, increment cat counter and update second 'p' of elem.
          elem.addEventListener('click', (function(catCopy) {
          return function() {
             catCopy.count = catCopy.count + 1;
